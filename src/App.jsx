@@ -1,14 +1,20 @@
 import { useEffect,useState } from "react"
+import BotCollection from "./components/BotCollection"
+
 function App() {
-  const [rob, setRob] = useState([])
+  const [robots, setRobots] = useState([])
   useEffect(()=>{
     fetch('http://localhost:3000/bots')
     .then(r=>r.json())
-    .then(data=>setRob(data))
+    .then(robot=>setRobots(robot))
   },[])
+
   return (
     <>
-      {rob.map(dat=> <p>{dat.name}</p>)}
+      <div className="navbar">
+        BotCollection
+      </div>
+      <BotCollection robots={robots}/>
     </>
   )
 }
