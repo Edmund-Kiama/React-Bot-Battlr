@@ -16,7 +16,7 @@ function App() {
   const handleRecruit = (newRecruit) => {
     //checks if it recruit exist in your army already
     const toAddOnlyOne = recruits.find(recruit => recruit.id === newRecruit.id )
-
+    //updates state by adding new recruit
     if (!toAddOnlyOne) {
       setRecruits([
       ...recruits, newRecruit
@@ -25,11 +25,17 @@ function App() {
     
   }
  
+  const handleReleaseRecruit = (releaseRecruit) => {
+    //removes recruit from recruits 
+    const updatedRecruits = recruits.filter(recruit => recruit.id !== releaseRecruit.id )
+    //updates state
+    setRecruits(updatedRecruits)
+  }
 
   return (
     <>
       <NavBar /> 
-      <YourBotArmy recruits={recruits}/>
+      <YourBotArmy recruits={recruits} handleReleaseRecruit={handleReleaseRecruit}/>
       <BotCollection robots={robots} handleRecruit={handleRecruit}/>
     </>
   )
