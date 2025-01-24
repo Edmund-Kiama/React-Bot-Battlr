@@ -50,11 +50,13 @@ body{
 .no-bots-added p {
     font-size: 30px;
     margin: 20px;
+    color:#cccccc;
 }
 .bots-added h1{
     text-align: center;
     font-size: 30px;
     margin: 20px;
+    color: #f2f2f2;
 }
 .bot-collection h1{
     text-align: center;
