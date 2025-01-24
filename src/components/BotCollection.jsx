@@ -3,9 +3,9 @@ export default function BotCollection ({ robots, handleRecruit, releaseFromDuty 
     const displayProfiles = robots.map(robotData => {
         return (
           <div key={robotData.id} className="bot-container" >
-            <div>
+            <div className="bot-header">
                 <p></p>
-                <button onClick={() => releaseFromDuty(robotData)}>X</button>
+                <button className="bye-bye" onClick={() => releaseFromDuty(robotData)}>X</button>
             </div>
             <div  onClick={() => handleRecruit(robotData)}>
                 <img src={ robotData.avatar_url } alt="avatar" />
@@ -29,13 +29,11 @@ export default function BotCollection ({ robots, handleRecruit, releaseFromDuty 
       })
 
     return (
-        <>
-            <div>
-                <h1>BOT PROFILES</h1>
-            </div>
+        <div className="bot-collection">
+            <h1>BOT PROFILES</h1>
             <div className="main-container">
                 { displayProfiles }
             </div>
-        </>
+        </div>
     )
 }

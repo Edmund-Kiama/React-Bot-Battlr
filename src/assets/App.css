@@ -6,6 +6,35 @@ body{
     background-color: #1a1a1a;
     color: white;
 }
+.navbar {
+    background-color: #262626;
+}
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 100px;
+    padding-left: 20px;
+}
+.navbar ul li {
+    margin: 10px;
+}
+.no-bots-added{
+    text-align: center;
+}
+.no-bots-added p {
+    font-size: 30px;
+    margin: 20px;
+}
+.bots-added h1{
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+}
+.bot-collection h1{
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+}
 .main-container {
     display: flex;
     flex-wrap: wrap;
@@ -22,6 +51,24 @@ body{
     transform: scale(1.03);
     border: 1px solid #4d4d44;
     padding: 15px;
+}
+.bot-header {
+    display: flex;
+    justify-content: space-between;
+}
+.bot-header .bye-bye {
+    float: right;
+    background-color: rgba(255, 0, 0, 0.575);
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    transition: 0.2s;
+    font-weight: bolder;
+    text-align: center;
+}
+.bot-header .bye-bye:hover {
+    background-color: red;
 }
 .bot-name-and-class-div {
     color: #f2f2f2 ;
