@@ -1,6 +1,6 @@
-export default function BotCollection ({ robots, handleRecruit }) {
+export default function YourBotArmy ({ recruits }) {
 
-    const displayProfiles = robots.map(robotData => {
+    const displayRecruits = recruits.map(robotData => {
         return (
           <div className="bot-container" key={robotData.id} onClick={() => handleRecruit(robotData)}>
             <img src={ robotData.avatar_url } alt="avatar" />
@@ -25,10 +25,10 @@ export default function BotCollection ({ robots, handleRecruit }) {
     return (
         <>
             <div>
-                <h1>BOT PROFILES</h1>
+                <h1>YOUR ARMY</h1>
             </div>
             <div className="main-container">
-                { displayProfiles }
+                { displayRecruits }
             </div>
         </>
     )
