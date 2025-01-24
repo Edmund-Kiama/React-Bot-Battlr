@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite && open http://localhost:5173",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server":"json-server --watch db.json",
+    "start":"json-server --watch db.json & npm run dev"
+    
   },
   "dependencies": {
     "react": "^18.3.1",
