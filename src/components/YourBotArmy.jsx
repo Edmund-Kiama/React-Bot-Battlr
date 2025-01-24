@@ -2,7 +2,7 @@ export default function YourBotArmy ({ recruits }) {
 
     const displayRecruits = recruits.map(robotData => {
         return (
-          <div className="bot-container" key={robotData.id} onClick={() => handleRecruit(robotData)}>
+          <div className="bot-container" key={robotData.id}>
             <img src={ robotData.avatar_url } alt="avatar" />
             <p className="catchphrase">{ robotData.catchphrase }</p>
             <div className="bot-name-and-class-div">

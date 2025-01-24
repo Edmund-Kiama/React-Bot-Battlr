@@ -14,9 +14,15 @@ function App() {
   },[])
 
   const handleRecruit = (newRecruit) => {
-    setRecruits([
+    //checks if it recruit exist in your army already
+    const toAddOnlyOne = recruits.find(recruit => recruit.id === newRecruit.id )
+
+    if (!toAddOnlyOne) {
+      setRecruits([
       ...recruits, newRecruit
     ])
+    }
+    
   }
  
 
