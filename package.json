@@ -8,13 +8,13 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server":"json-server --watch db.json",
-    "start":"json-server --watch db.json & npm run dev"
-    
+    "server": "json-server --watch db.json",
+    "start": "json-server --watch db.json & npm run dev"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
