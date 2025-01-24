@@ -26,7 +26,7 @@ export default function YourBotArmy ({ recruits, handleReleaseRecruit }) {
         <>
         {recruits.length === 0 ? (
             <div className="no-bots-added">
-                <img src="https://i.pinimg.com/736x/3e/01/66/3e01667b4c12daee9ea2a1cfabe58e2d.jpg" alt="no bots added"/>
+              <h1>YOUR ARMY</h1>
                 <p>No Bots Added to your Army <br/>Please try recruiting first !</p>
             </div>
         )

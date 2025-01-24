@@ -1,7 +1,6 @@
 import { useEffect,useState } from "react"
-import BotCollection from "./components/BotCollection"
-import NavBar from "./components/NavBar"
-import YourBotArmy from "./components/YourBotArmy"
+import BotCollection from "./Components/BotCollection"
+import YourBotArmy from "./Components/YourBotArmy"
 
 function App() {
   const [robots, setRobots] = useState([])
@@ -11,7 +10,7 @@ function App() {
     fetch('http://localhost:3000/bots')
     .then(r=>r.json())
     .then(robot=>setRobots(robot))
-  },[robots])
+  },[])
 
  
 
@@ -35,7 +34,7 @@ function App() {
   }
 
   const releaseFromDuty = (releaseForeverBot) => {
-    //deletes from the back-end
+    //deletes from the back
     fetch(`http://localhost:3000/bots/${releaseForeverBot.id}`,{
         method: "DELETE"
       })
@@ -43,7 +42,6 @@ function App() {
 
   return (
     <>
-      <NavBar /> 
       <YourBotArmy recruits={recruits} handleReleaseRecruit={handleReleaseRecruit}/>
       <BotCollection robots={robots} handleRecruit={handleRecruit} releaseFromDuty={releaseFromDuty}/>
     </>
