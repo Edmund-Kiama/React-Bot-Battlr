@@ -1,4 +1,4 @@
-export default function FilerBar ({setSelectedClass}) {
+export default function FilerBar ({setSelectedClass, selectedClass}) {
     
     let classArr =["Support", "Medic", "Assault", "Defender", "Captain", "Witch"];
 
@@ -6,10 +6,10 @@ export default function FilerBar ({setSelectedClass}) {
         setSelectedClass(category)
       }
     return (
-        <label>
-                Search By Class :
+        <label className="class-label">
+                Search By Class 
                 <select onChange={(e) => onClassChange(e.target.value)}>
-                    <option value="All">All</option>
+                    <option value={selectedClass}>{selectedClass}</option>
                     {classArr.map(classSet => {
                         return <option key={classSet} value={classSet}>{classSet}</option>
                     })}                      

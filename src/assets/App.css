@@ -60,9 +60,6 @@ body{
     margin: 20px;
     color: #f2f2f2;
 }
-select option:selected {
-    color: aqua;
-}
 .bot-collection h1{
     text-align: center;
     font-size: 30px;
@@ -187,4 +184,18 @@ select option:selected {
 .bot-stats p span,
 .stats-bot-stats p span {
     font-weight: bolder;
+}
+.sort-label,
+.class-label {
+    color: #cccccc;
+}
+.sort-label select,
+.class-label select {
+    background-color: transparent;
+    color: #999999;
+    padding: 3px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #414141;
+    border-radius: 2px;
 }

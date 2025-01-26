@@ -8,6 +8,8 @@ function App() {
   const [recruits, setRecruits] = useState([])
   const [isShown, setIsShown] = useState(false)
   const [displayProfile, setDisplayProfile] = useState()
+  const [selectedClass, setSelectedClass] = useState("All")
+  const [sortBy,setSortBy] =useState("None")
 
   useEffect(()=>{
     fetch('http://localhost:3000/bots')
@@ -67,7 +69,16 @@ function App() {
     {isShown? <Stats robot={displayProfile} goBack={goBack} handleRecruit={handleRecruit}/> :  
       (<>
         <YourBotArmy recruits={recruits} handleReleaseRecruit={handleReleaseRecruit}/>
-        <BotCollection showStat={showStat} robots={robots} handleRecruit={handleRecruit} releaseFromDuty={releaseFromDuty}/>
+        <BotCollection 
+          showStat={showStat} 
+          robots={robots} 
+          handleRecruit={handleRecruit} 
+          releaseFromDuty={releaseFromDuty}
+          setSelectedClass={setSelectedClass}
+          selectedClass={selectedClass}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+        />
       </>)}
      
     </>
