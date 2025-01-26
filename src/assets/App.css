@@ -8,7 +8,7 @@ body{
     display: flex;
     justify-content: center;
 }
-.error-page {
+/* .error-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,11 +29,12 @@ body{
     background-color: #262626;
     border-radius: 5px;
     transition: 0.2s;
+    cursor: pointer;
 }
 .error-page .go-back-home:hover {
     color: aliceblue;
     background-color: #4d4d44;
-}
+} */
 .navbar {
     background-color: #262626;
 }
@@ -92,6 +93,9 @@ body{
     background-color: #262626;
     transition: 0.25s;
 }
+.bot-container{
+    cursor: pointer;
+}
 .bot-container:hover {
     transform: scale(1.03);
     border: 1px solid #4d4d44;
@@ -115,6 +119,7 @@ body{
     border: none;
     border-radius: 2px;
     transition: 0.2s;
+    cursor: pointer;
 }
 .bot-header .recruit:hover,
 .footer .stats-recruit:hover,
@@ -134,6 +139,7 @@ body{
     transition: 0.2s;
     font-weight: bolder;
     text-align: center;
+    cursor: pointer;
 }
 .bot-header .bye-bye:hover {
     background-color: red;
@@ -198,4 +204,14 @@ body{
     margin-bottom: 10px;
     border: 1px solid #414141;
     border-radius: 2px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.sort-label select:hover,
+.class-label select:hover {
+    border: 1px solid #999999;
+}
+.sort-label select option,
+.class-label select option {
+    color: #262626;
 }
