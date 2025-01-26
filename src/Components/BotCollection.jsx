@@ -1,13 +1,9 @@
 import { useState } from "react";
+import FilterBar from "./FilterBar";
+
 export default function BotCollection ({ robots, handleRecruit, showStat,releaseFromDuty }) {
     const [selectedClass, setSelectedClass] = useState("All")
-    // const [display, setDisplay] = useState([])
-
-    let classArr =[];
-    robots.filter(robot => {
-        if(!classArr.includes(robot.bot_class)){
-        classArr.push(robot.bot_class)
-    }})
+    
     const display = robots.filter(robot => {
         if (selectedClass === "All") {
             return true
@@ -33,23 +29,11 @@ export default function BotCollection ({ robots, handleRecruit, showStat,release
         )
       })   
 
-      function onClassChange (category) {
-        setSelectedClass(category)
-      }
-
     return (
         <div className="bot-collection">
             <h1>BOT PROFILES</h1>
             <div className="main-container">
-                <label>
-                    Search :
-                    <select onChange={(e) => onClassChange(e.target.value)}>
-                        <option value="All">All classes</option>
-                        {classArr.map(classSet => {
-                            return <option key={classSet} value={classSet}>{classSet}</option>
-                        })}                      
-                    </select>
-                </label>
+                <FilterBar robots={robots} setSelectedClass={setSelectedClass}/>
                 <div className="container">
                     { displayProfiles }
                 </div>

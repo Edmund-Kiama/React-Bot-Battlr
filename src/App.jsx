@@ -13,7 +13,7 @@ function App() {
     fetch('http://localhost:3000/bots')
     .then(r=>r.json())
     .then(robot=>setRobots(robot))
-  },[])
+  },[robots])
 
   const handleRecruit = (newRecruit) => {
     //checks if it recruit exist in your army already
@@ -23,7 +23,8 @@ function App() {
       setRecruits([
       ...recruits, newRecruit
     ])
-    }
+  }
+    releaseFromDuty(newRecruit)
   }
  
   const handleReleaseRecruit = (releaseRecruit) => {
