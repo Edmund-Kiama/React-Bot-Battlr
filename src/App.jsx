@@ -23,8 +23,6 @@ function App() {
       setRecruits([
       ...recruits, newRecruit
     ])
-    console.log(newRecruit)
-    console.log(recruits)
     }
   }
  

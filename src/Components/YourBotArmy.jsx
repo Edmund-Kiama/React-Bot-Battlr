@@ -1,5 +1,4 @@
 export default function YourBotArmy ({ recruits, handleReleaseRecruit }) {
-
     const displayRecruits = recruits.map(robotData => {
         return (
           <div className="bot-container" key={robotData.id} onClick={() => handleReleaseRecruit(robotData)}>
@@ -24,21 +23,22 @@ export default function YourBotArmy ({ recruits, handleReleaseRecruit }) {
 
     return (
         <>
-        {recruits.length === 0 ? (
-            <div className="no-bots-added">
-              <h1>YOUR ARMY</h1>
-                <p>No Bots Added to your Army <br/>Please try recruiting first !</p>
-            </div>
-        )
-        : 
-        (
-            <div className="bots-added">
+          {recruits.length === 0 ? (
+              <div className="no-bots-added">
                 <h1>YOUR ARMY</h1>
-                <div className="main-container">
-                    { displayRecruits }
-                </div>
-            </div>
-        )}
+               
+                <p>No Bots Added to your Army <br/>Please try recruiting first !</p>
+              </div>
+          )
+          : 
+          (
+              <div className="bots-added">
+                  <h1>YOUR ARMY</h1>
+                  <div className="main-container">
+                      { displayRecruits }
+                  </div>
+              </div>
+          )}
         </>
     )
 }

@@ -1,6 +1,20 @@
+import { useState } from "react";
 export default function BotCollection ({ robots, handleRecruit, showStat,releaseFromDuty }) {
+    const [selectedClass, setSelectedClass] = useState("All")
+    // const [display, setDisplay] = useState([])
 
-    const displayProfiles = robots.map(robotData => {
+    let classArr =[];
+    robots.filter(robot => {
+        if(!classArr.includes(robot.bot_class)){
+        classArr.push(robot.bot_class)
+    }})
+    const display = robots.filter(robot => {
+        if (selectedClass === "All") {
+            return true
+        }
+        return selectedClass === robot.bot_class
+    })
+    const displayProfiles = display.map(robotData => {
         return (
           <div key={robotData.id} className="bot-container" >
             <div className="bot-header">
@@ -17,13 +31,28 @@ export default function BotCollection ({ robots, handleRecruit, showStat,release
             </div>
           </div>
         )
-      })
+      })   
+
+      function onClassChange (category) {
+        setSelectedClass(category)
+      }
 
     return (
         <div className="bot-collection">
             <h1>BOT PROFILES</h1>
             <div className="main-container">
-                { displayProfiles }
+                <label>
+                    Search :
+                    <select onChange={(e) => onClassChange(e.target.value)}>
+                        <option value="All">All classes</option>
+                        {classArr.map(classSet => {
+                            return <option key={classSet} value={classSet}>{classSet}</option>
+                        })}                      
+                    </select>
+                </label>
+                <div className="container">
+                    { displayProfiles }
+                </div>
             </div>
         </div>
     )

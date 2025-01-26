@@ -69,6 +69,12 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+ 
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 1000px;
 }
 .stats-main-container {
