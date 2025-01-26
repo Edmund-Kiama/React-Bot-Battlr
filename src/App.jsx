@@ -27,7 +27,14 @@ function App() {
       ...recruits, newRecruit
       ])
     releaseFromDuty(newRecruit)
-  }
+    }
+    
+    if (sameRecruit) {
+      alert("Bot already exists in you army")
+    }
+    if (sameClass && !sameRecruit) {
+      alert("A bot of similar class already exist. Please select a bot from another class")
+    }
     
   }
  

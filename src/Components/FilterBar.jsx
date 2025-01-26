@@ -1,10 +1,6 @@
-export default function FilerBar ({setSelectedClass, robots}) {
-    let classArr =[];
-
-    robots.filter(robot => {
-        if(!classArr.includes(robot.bot_class)){
-        classArr.push(robot.bot_class)
-    }})
+export default function FilerBar ({setSelectedClass}) {
+    
+    let classArr =["Support", "Medic", "Assault", "Defender", "Captain", "Witch"];
 
     function onClassChange (category) {
         setSelectedClass(category)
