@@ -7,9 +7,9 @@ export default function FilerBar ({setSelectedClass}) {
       }
     return (
         <label>
-                Search :
+                Search By Class :
                 <select onChange={(e) => onClassChange(e.target.value)}>
-                    <option value="All">All classes</option>
+                    <option value="All">All</option>
                     {classArr.map(classSet => {
                         return <option key={classSet} value={classSet}>{classSet}</option>
                     })}                      

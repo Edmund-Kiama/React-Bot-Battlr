@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FilterBar from "./FilterBar";
+import SortBar from "./SortBar";
 
 export default function BotCollection ({ robots, handleRecruit, showStat,releaseFromDuty }) {
     const [selectedClass, setSelectedClass] = useState("All")
@@ -33,6 +34,7 @@ export default function BotCollection ({ robots, handleRecruit, showStat,release
         <div className="bot-collection">
             <h1>BOT PROFILES</h1>
             <div className="main-container">
+                <SortBar />
                 <div className="container">
                     <FilterBar setSelectedClass={setSelectedClass}/>
                 </div>
