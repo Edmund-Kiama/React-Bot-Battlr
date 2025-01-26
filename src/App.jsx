@@ -1,18 +1,19 @@
 import { useEffect,useState } from "react"
 import BotCollection from "./Components/BotCollection"
 import YourBotArmy from "./Components/YourBotArmy"
+import Stats from "./Components/Stats"
 
 function App() {
   const [robots, setRobots] = useState([])
   const [recruits, setRecruits] = useState([])
+  const [isShown, setIsShown] = useState(false)
+  const [displayProfile, setDisplayProfile] = useState()
 
   useEffect(()=>{
     fetch('http://localhost:3000/bots')
     .then(r=>r.json())
     .then(robot=>setRobots(robot))
   },[])
-
- 
 
   const handleRecruit = (newRecruit) => {
     //checks if it recruit exist in your army already
@@ -22,8 +23,9 @@ function App() {
       setRecruits([
       ...recruits, newRecruit
     ])
+    console.log(newRecruit)
+    console.log(recruits)
     }
-    
   }
  
   const handleReleaseRecruit = (releaseRecruit) => {
@@ -40,10 +42,24 @@ function App() {
       })
   }
 
+  function goBack () {
+    setIsShown(show => !show)
+    setDisplayProfile()
+  }
+
+  function showStat (robotData) {
+    setIsShown(show=> !show)
+    setDisplayProfile(robotData)
+}
+
   return (
     <>
-      <YourBotArmy recruits={recruits} handleReleaseRecruit={handleReleaseRecruit}/>
-      <BotCollection robots={robots} handleRecruit={handleRecruit} releaseFromDuty={releaseFromDuty}/>
+    {isShown? <Stats robot={displayProfile} goBack={goBack} handleRecruit={handleRecruit}/> :  
+      (<>
+        <YourBotArmy recruits={recruits} handleReleaseRecruit={handleReleaseRecruit}/>
+        <BotCollection showStat={showStat} robots={robots} handleRecruit={handleRecruit} releaseFromDuty={releaseFromDuty}/>
+      </>)}
+     
     </>
   )
 }

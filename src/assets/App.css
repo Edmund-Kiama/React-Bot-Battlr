@@ -5,6 +5,8 @@
 body{
     background-color: #1a1a1a;
     color: white;
+    display: flex;
+    justify-content: center;
 }
 .error-page {
     display: flex;
@@ -67,27 +69,58 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 1000px;
 }
-.bot-container {
+.stats-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.bot-container,
+.stats-container {
     margin: 8px;
     border: 1px solid #333333;
     padding: 10px;
     border-radius: 5px;
     background-color: #262626;
-    transition: 0.2s;
+    transition: 0.25s;
 }
 .bot-container:hover {
     transform: scale(1.03);
     border: 1px solid #4d4d44;
     padding: 15px;
 }
-.bot-header {
+.bot-header ,
+.footer {
     display: flex;
     justify-content: space-between;
 }
+.bot-header .recruit ,
+.footer .stats-recruit,
+.footer .stats-go-back{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    font-weight: bold;
+    color: #cccccc;
+    background-color: #414141;
+    border: none;
+    border-radius: 2px;
+    transition: 0.2s;
+}
+.bot-header .recruit:hover,
+.footer .stats-recruit:hover,
+.footer .stats-go-back:hover {
+    color: #414141;
+    background-color: #cccccc;
+}
+
 .bot-header .bye-bye {
     float: right;
     background-color: rgba(255, 0, 0, 0.575);
+    color: #cccccc;
     border: none;
     width: 20px;
     height: 20px;
@@ -99,7 +132,8 @@ body{
 .bot-header .bye-bye:hover {
     background-color: red;
 }
-.bot-name-and-class-div {
+.bot-name-and-class-div,
+.stats-bot-name-and-class-div {
     color: #f2f2f2 ;
     display: flex;
     justify-content: space-between;
@@ -113,29 +147,35 @@ body{
     color: #cccccc;
     font-size: small;
 }
-.catchphrase {
+.catchphrase,
+.stats-catchphrase {
     color: #999999;
     text-align: center;
     margin-top: 5px;
 }
-.bot-dates {
+.bot-dates,
+.stats-bot-dates {
     color: #999999;
     padding: 10px;
     font-size: small;
 }
-.bot-dates span {
+.bot-dates span,
+.stats-bot-dates span {
     font-style: italic;
     font-weight: bolder;
 }
-.bot-stats {
+.bot-stats,
+.stats-bot-stats {
     color: #cccccc;
     padding: 5px;
     border-top: 1px solid #414141;
     border-bottom: 1px solid #414141;
 }
-.bot-stats p {
+.bot-stats p,
+.stats-bot-stats p {
     padding: 5px;
 }
-.bot-stats p span {
+.bot-stats p span,
+.stats-bot-stats p span {
     font-weight: bolder;
 }
