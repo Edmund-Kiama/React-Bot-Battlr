@@ -17,14 +17,18 @@ function App() {
 
   const handleRecruit = (newRecruit) => {
     //checks if it recruit exist in your army already
-    const toAddOnlyOne = recruits.find(recruit => recruit.id === newRecruit.id )
+    const sameRecruit = recruits.find(recruit => recruit.id === newRecruit.id )
+    //checks if there exist other recruit of same class
+    const sameClass = recruits.find(recruit => recruit.bot_class === newRecruit.bot_class )
+
     //updates state by adding new recruit
-    if (!toAddOnlyOne) {
+    if (!sameRecruit && !sameClass) {
       setRecruits([
       ...recruits, newRecruit
-    ])
-  }
+      ])
     releaseFromDuty(newRecruit)
+  }
+    
   }
  
   const handleReleaseRecruit = (releaseRecruit) => {

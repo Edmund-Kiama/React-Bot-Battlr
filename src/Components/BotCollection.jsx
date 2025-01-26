@@ -33,7 +33,9 @@ export default function BotCollection ({ robots, handleRecruit, showStat,release
         <div className="bot-collection">
             <h1>BOT PROFILES</h1>
             <div className="main-container">
-                <FilterBar robots={robots} setSelectedClass={setSelectedClass}/>
+                <div className="container">
+                    <FilterBar robots={robots} setSelectedClass={setSelectedClass}/>
+                </div>
                 <div className="container">
                     { displayProfiles }
                 </div>
