@@ -1,13 +1,10 @@
 import { useEffect,useState } from "react"
-import BotCollection from "./Components/BotCollection"
-import YourBotArmy from "./Components/YourBotArmy"
-import Stats from "./Components/Stats"
+import NavBar from "./Components/NavBar"
+import { Outlet } from "react-router-dom"
 
 function App() {
   const [robots, setRobots] = useState([])
   const [recruits, setRecruits] = useState([])
-  const [isShown, setIsShown] = useState(false)
-  const [displayProfile, setDisplayProfile] = useState()
   const [selectedClass, setSelectedClass] = useState("All")
   const [sortBy,setSortBy] =useState("None")
 
@@ -42,7 +39,6 @@ function App() {
     if (sameClass && !sameRecruit) {
       alert("A bot of similar class already exist. Please select a bot from another class")
     }
-    
   }
  
   //removes bots from your army
@@ -61,36 +57,25 @@ function App() {
       })
   }
 
-  //goes back to bot collection from show stat pop-up
-  function goBack () {
-    setIsShown(show => !show)
-    setDisplayProfile()
-  }
-
-  //shows a pop-up for selected bot to its stats
-  function showStat (robotData) {
-    setIsShown(show=> !show)
-    setDisplayProfile(robotData)
-}
-
   return (
-    <>
-    {isShown? <Stats robot={displayProfile} goBack={goBack} handleRecruit={handleRecruit}/> :  
-      (<>
-        <YourBotArmy recruits={recruits} handleReleaseRecruit={handleReleaseRecruit}/>
-        <BotCollection 
-          showStat={showStat} 
-          robots={robots} 
-          handleRecruit={handleRecruit} 
-          releaseFromDuty={releaseFromDuty}
-          setSelectedClass={setSelectedClass}
-          selectedClass={selectedClass}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-        />
-      </>)}
+    <div className="container">
+      <NavBar />
      
-    </>
+      <Outlet 
+        context={{
+          recruits,
+          handleRecruit,
+          handleReleaseRecruit,
+          robots,
+          releaseFromDuty,
+          selectedClass,
+          setSelectedClass,
+          sortBy,
+          setSortBy
+        }}
+      />
+
+    </div>
   )
 }
 

@@ -32,6 +32,7 @@ The app is able to do the following:
 5. **`Release bots to "Your army"`**: Once a bot has served in your army, you can release them from duty by using the release button
 6. **`Search functionality`**: In bot collection, you can search for bot by selecting a specific class
 7. **`Sort functionality`**: In bot collection, you can sort the displayed bots by either their health, armor or damage.
+8. **`Client Side Routing`**: The navbar has two page links, which can be used to navigate to you army or the bot collection.
 
 ## Features
 
@@ -42,16 +43,18 @@ The app is able to do the following:
 5. **`Sort functionality`**: In bot collection, you can sort the displayed bots by either their health, armor or damage.
 6. **`One Bot per Class`**: You can only choose one bot per class from bot collection to join your army
 7. **`Alerts the user incase of wrong inputs`**: An alert is displayed when the user trys to add an already existing bot into their army, or when they try to add a bot of an already existing class
+8. **`Client Side Routing`**: The application contains routes for different pages: bot collection and your army. The user is able to navigate to the two routes via the NavLink provided in the NavBar. 
 
 ## Code Overview
 
 ### Component Structure
 
-App ---> Stats
-    ---> YourBotArmy
-    ---> BotCollection ---> RobotCard
-                       ---> SortBar
-                       ---> FilterBar
+App --->NavBar
+    --->Outlet   ---> YourBotArmy
+                 ---> BotCollection ---> Stats
+                                    ---> RobotCard
+                                    ---> SortBar
+                                    ---> FilterBar
 
 ### App Component
 
@@ -61,8 +64,6 @@ App ---> Stats
 **State Variables**
 1. `robots`: Holds the list of all bots fetched from the server.
 2. `recruits`: Stores bots currently in your army.
-3. `isShown`: Controls the visibility of the stats pop-up.
-4. `displayProfile`: Stores data for the bot whose stats are displayed.
 5. `selectedClass`: Tracks the currently selected class for filtering.
 6. `sortBy`: Manages the sorting order of bots in the collection.
 
@@ -71,20 +72,13 @@ App ---> Stats
 2. `handleRecruit`: Adds a bot to the army after validating constraints.
 3. `handleReleaseRecruit`: Removes a bot from the army.
 4. `releaseFromDuty`: Permanently deletes a bot from the collection (both state and server).
-5. `goBack`: Closes the stats pop-up and resets the profile view.
-6. `showStat`: Displays the stats pop-up for a selected bot.
 
-**Render**
-Displays either the Stats Pop-up or the main interface, which includes:
-    - Your Bot Army
-    - Bot Collection
-
-### Component Hierarchy
+### Components Brief Description
 
 #### App
 
 - Manages the application's global state.
-- Renders the main UI components and handles conditional rendering.
+- Renders the main UI components and has its route children
 
 #### YourBotArmy
 

@@ -1,5 +1,7 @@
-//for your army
-export default function YourBotArmy ({ recruits, handleReleaseRecruit }) {
+import { useOutletContext } from "react-router-dom"
+export default function YourBotArmy () {
+  const { recruits, handleReleaseRecruit } = useOutletContext();
+  
     const displayRecruits = recruits.map(robotData => {
         return (
           <div className="bot-container" key={robotData.id} onClick={() => handleReleaseRecruit(robotData)}>
