@@ -1,3 +1,4 @@
+//shows the stats pop-up 
 export default function Stats ({robot, goBack, handleRecruit}) {
    
     return (

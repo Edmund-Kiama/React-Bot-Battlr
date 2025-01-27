@@ -1,3 +1,4 @@
+//for your army
 export default function YourBotArmy ({ recruits, handleReleaseRecruit }) {
     const displayRecruits = recruits.map(robotData => {
         return (

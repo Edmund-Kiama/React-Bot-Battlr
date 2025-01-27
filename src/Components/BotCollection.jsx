@@ -3,13 +3,16 @@ import SortBar from "./SortBar";
 import RobotCard from "./RobotCard";
 
 export default function BotCollection ({ robots, handleRecruit, showStat,releaseFromDuty,selectedClass,setSelectedClass,sortBy,setSortBy }) {
+    //responsible for showing which data
     const displayProfiles = robots
+        //for class
         .filter(robot => {
         if (selectedClass === "All") {
             return true
         }
         return selectedClass === robot.bot_class
         })
+        //for sort
         .sort((robotA,robotB) => {
             if(sortBy === "health"){
                 return robotB.health - robotA.health
@@ -19,6 +22,7 @@ export default function BotCollection ({ robots, handleRecruit, showStat,release
                 return robotB.armor - robotA.armor
             }
         })
+        //for creating element
         .map(robotData => {
         return (
           <RobotCard  

@@ -1,3 +1,4 @@
+//single robot card element
 export default function RobotCard ({robotData, handleRecruit, releaseFromDuty,showStat}) {
     return (
         <div className="bot-container" >

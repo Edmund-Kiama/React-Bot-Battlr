@@ -11,12 +11,14 @@ function App() {
   const [selectedClass, setSelectedClass] = useState("All")
   const [sortBy,setSortBy] =useState("None")
 
+  //get fetch from json server
   useEffect(()=>{
     fetch('http://localhost:3000/bots')
     .then(r=>r.json())
     .then(robot=>setRobots(robot))
   },[robots])
 
+  //adds bot to army
   const handleRecruit = (newRecruit) => {
     //checks if it recruit exist in your army already
     const sameRecruit = recruits.find(recruit => recruit.id === newRecruit.id )
@@ -25,12 +27,15 @@ function App() {
 
     //updates state by adding new recruit
     if (!sameRecruit && !sameClass) {
+      //adds bot to your army
       setRecruits([
       ...recruits, newRecruit
       ])
+    //removes bot fom bot collection
     releaseFromDuty(newRecruit)
     }
-    
+
+    //alerts for users
     if (sameRecruit) {
       alert("Bot already exists in you army")
     }
@@ -40,6 +45,7 @@ function App() {
     
   }
  
+  //removes bots from your army
   const handleReleaseRecruit = (releaseRecruit) => {
     //removes recruit from recruits 
     const updatedRecruits = recruits.filter(recruit => recruit.id !== releaseRecruit.id )
@@ -47,6 +53,7 @@ function App() {
     setRecruits(updatedRecruits)
   }
 
+  //removes bot from bot collection permanently
   const releaseFromDuty = (releaseForeverBot) => {
     //deletes from the back
     fetch(`http://localhost:3000/bots/${releaseForeverBot.id}`,{
@@ -54,11 +61,13 @@ function App() {
       })
   }
 
+  //goes back to bot collection from show stat pop-up
   function goBack () {
     setIsShown(show => !show)
     setDisplayProfile()
   }
 
+  //shows a pop-up for selected bot to its stats
   function showStat (robotData) {
     setIsShown(show=> !show)
     setDisplayProfile(robotData)
