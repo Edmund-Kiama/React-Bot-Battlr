@@ -37,7 +37,7 @@ export default function BotCollection ({ robots, handleRecruit, showStat,release
 
     return (
         <div className="bot-collection">
-            <h1>BOT PROFILES</h1>
+            <h1>BOT COLLECTION</h1>
             <div className="main-container">
                 <SortBar setSortBy={setSortBy} sortBy={sortBy}/>
                 <div className="container">
